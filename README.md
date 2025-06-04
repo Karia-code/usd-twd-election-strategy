@@ -39,8 +39,19 @@ plt.axhline(31.5, color='red', linestyle='--', label='Exit Threshold')
 |---------------|--------------------------------------------------|------|
 | `/data/`      | Original Excel assumptions and FX scenarios      | [Google Sheet](https://docs.google.com/spreadsheets/d/10DiAvFjMKqC1DRFANqVg_A8_3dPdnlSglUquVSOoeiU) |
 | `/code/`      | Backtest implementation in Python / Notebook     | [Colab Notebook](https://colab.research.google.com/drive/1f6qG9ylhAXW93HMatvsUPBis_1k5Umj9?usp=sharing) |
-| `/images/`    | Strategy output visualizations        |  ![Strategy Logic](https://github.com/user-attachments/assets/3a8b4931-5432-4d96-9e50-3229ec3e4c0b)、 ![USD/TWD Close](https://github.com/user-attachments/assets/2170d1dd-6240-4a3a-afa5-b4ac15fc7d45)、 ![Zone Indicators](https://github.com/user-attachments/assets/ffa79a0f-df39-4c6b-b163-09d395142031)、 ![Backtest Outcome](https://github.com/user-attachments/assets/21bb9189-1b38-4d4a-aba6-43de7a704081)、  ![Result Chart](https://github.com/user-attachments/assets/9d72c795-0d73-4f39-bc48-cf9ac6215505)    |
-| `README.md`   | Project description (you’re here)                | –    |  
+| `/images/`    | Strategy output visualizations                   | –    |
+| `README.md`   | Project description (you’re here)                | –    |
+
+## Visualization Gallery
+
+![Strategy Logic](https://github.com/user-attachments/assets/3a8b4931-5432-4d96-9e50-3229ec3e4c0b)
+![USD/TWD Close](https://github.com/user-attachments/assets/2170d1dd-6240-4a3a-afa5-b4ac15fc7d45)
+![Zone Indicators](https://github.com/user-attachments/assets/ffa79a0f-df39-4c6b-b163-09d395142031)
+![Backtest Outcome](https://github.com/user-attachments/assets/21bb9189-1b38-4d4a-aba6-43de7a704081)
+![Result Chart](https://github.com/user-attachments/assets/9d72c795-0d73-4f39-bc48-cf9ac6215505)
+
+> Full output visualized: thresholds, backtest signals, and result metrics.
+
 
 
 ## Tech Stack
@@ -60,3 +71,12 @@ This strategy was first drafted in Excel (2024 Q1) and included:
 - Incorporate NLP-based news monitoring (NER + sentiment) to assess FX impact risk
 - Refactor logic for multi-currency pairs (e.g., USD/JPY, EUR/USD)
 
+---
+
+## Tags
+
+`#finance` `#exchange-rate` `#backtest` `#machine-learning` `#election-strategy` `#Python`
+
+## License
+
+NCKU TW© Kailin
