@@ -79,4 +79,5 @@ This strategy was first drafted in Excel (2024 Q1) and included:
 
 ## License
 
-NCKU TW© Kailin
+MIT© Kailin
+「此專案為學術用作品，請勿未經授權商業使用」
