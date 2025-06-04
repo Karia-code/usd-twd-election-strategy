@@ -79,5 +79,6 @@ This strategy was first drafted in Excel (2024 Q1) and included:
 
 ## License
 
-MIT© Kailin
+MIT © 2024 Kailin Su
+
 「此專案為學術用作品，請勿未經授權商業使用」
