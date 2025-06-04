@@ -1,76 +1,62 @@
-# usd-twd-election-strategy
+# USD/TWD Election-Based Strategy Backtest
 
-本專案為基於總統大選與政策事件推估匯率波動的策略回測模型。  
-起源於我個人在 2024 年製作的匯率推演 Excel 模型，後轉換為可重複測試的程式化策略。
-
----
-
-## 專案動機
-
-- 2024 年美國總統大選前後，市場預期聯準會可能調整利率政策
-- 根據歷屆大選前後 3 個月的匯率波動數據，我推演潛在的入場／出場區間
-- 為驗證觀察，我將邏輯轉換成回測模型，量化分析進出場時機
+A backtestable strategy for USD/TWD exchange rate forecasting, modeled on U.S. presidential election events.  
+Originally built as a spreadsheet-based logic map, this project transforms qualitative assumptions into a testable Python strategy with historical FX data.
 
 ---
 
-## 策略邏輯
+## Motivation
 
-- **進場門檻**：匯率低於 30.5（低點預期進場）
-- **出場門檻**：匯率回升至 31.5（獲利目標）
-- **停損機制**：若匯率跌破 30，則出場止損
-- **進出場依據**：每日美元兌台幣匯率（使用 `yfinance` 下載）
-
----
-
-## 策略結果範例圖
-
-` ![策略圖](wait) ` 
+- In the lead-up to the 2024 U.S. election, interest rate expectations surged.
+- Historical FX movements around past election cycles revealed potential patterns.
+- This project aims to verify entry/exit timing using event-driven assumptions and backtestable rules.
 
 ---
 
-## 原始推演資料（非程式產出）
+## Strategy Logic
 
-本策略原始雛型為一份 Excel 規劃文件，包含：
-
-- 2015–2017 美金匯率與上下限推估
-- 自訂 6 種情境 CASE（預期機率）
-- 資金與稅率配置模擬
-
-→ 請見 `wait`
+- **Entry Condition**: USD/TWD drops below 30.5 (assumed support zone)
+- **Exit Condition**: USD/TWD rebounds to 31.5 (target zone)
+- **Stop-Loss**: Price dips below 30
+- **Data Source**: Daily USD/TWD close price via [`yfinance`](https://pypi.org/project/yfinance/)
 
 ---
 
-## 專案結構說明
+## Sample Output
 
-| 資料夾 | 說明 |
-|--------|------|
-| `/data/` | 原始策略模型與資料來源 |
-| `/code/` | 策略回測主程式與圖表輸出 |
-| `/images/` | 可視化圖檔 |
-| `README.md` | 本說明文件 |
+![image](https://github.com/user-attachments/assets/59ffafeb-7f5a-4abe-9a93-58fb870632cf)
 
----
+```python
+# Example: Visualizing entry/exit zones
+plt.plot(df['Close'], label='USD/TWD')
+plt.axhline(30.5, color='green', linestyle='--', label='Entry Threshold')
+plt.axhline(31.5, color='red', linestyle='--', label='Exit Threshold')
+```
 
-## 技術工具
+## Repository Structure
 
-- Python + pandas + yfinance
-- matplotlib 視覺化
-- Jupyter Notebook / Colab
-- GitHub 版本管理
+| Folder        | Description                                      | Link |
+|---------------|--------------------------------------------------|------|
+| `/data/`      | Original Excel assumptions and FX scenarios      | [Google Sheet](https://docs.google.com/spreadsheets/d/10DiAvFjMKqC1DRFANqVg_A8_3dPdnlSglUquVSOoeiU) |
+| `/code/`      | Backtest implementation in Python / Notebook     | [Colab Notebook](https://colab.research.google.com/drive/1f6qG9ylhAXW93HMatvsUPBis_1k5Umj9?usp=sharing) |
+| `/images/`    | Strategy output visualizations        |  ![Strategy Logic](https://github.com/user-attachments/assets/3a8b4931-5432-4d96-9e50-3229ec3e4c0b)、 ![USD/TWD Close](https://github.com/user-attachments/assets/2170d1dd-6240-4a3a-afa5-b4ac15fc7d45)、 ![Zone Indicators](https://github.com/user-attachments/assets/ffa79a0f-df39-4c6b-b163-09d395142031)、 ![Backtest Outcome](https://github.com/user-attachments/assets/21bb9189-1b38-4d4a-aba6-43de7a704081)、  ![Result Chart](https://github.com/user-attachments/assets/9d72c795-0d73-4f39-bc48-cf9ac6215505)    |
+| `README.md`   | Project description (you’re here)                | –    |  
 
----
 
-## 未來擴充方向
+## Tech Stack
+- Python (pandas, yfinance, matplotlib)
+- Strategy testing via Jupyter Notebook
+- Git-based version control
 
-- 結合美股指數與利率預測資料強化策略觸發條件
-- 加入 AI 模型對「事件新聞」做 NER + sentiment 分析判斷波動風險
-- 模組化策略邏輯，套用於其他幣種（如 USD/JPY）
+## Legacy Origin
+This strategy was first drafted in Excel (2024 Q1) and included:
+- Manual simulations of 2015–2017 election cycle FX behaviors
+- 6-case scenario forecast with policy outcome assumptions
+- Post-tax yield calculations and timing optimization
+- The spreadsheet served as a sandbox to structure logic before converting it to Python.
 
----
+## Future Enhancements
+- Add FedWatch rate forecast or macro indicators as trigger filters
+- Incorporate NLP-based news monitoring (NER + sentiment) to assess FX impact risk
+- Refactor logic for multi-currency pairs (e.g., USD/JPY, EUR/USD)
 
-## 關於作者
-
-我是一位具備 AI × 投資 × 產業敏感度背景的學生。  
-本科為地球科學，專精材料與科技產業趨勢分析，曾開發 AI 穿戴設備系統、設計 B2B 工具與網站，並持續透過投資模擬與資訊整合強化判斷效率。
-
-如需合作交流，請聯絡：sukailin1124@gmail.com
